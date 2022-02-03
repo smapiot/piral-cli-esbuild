@@ -6,7 +6,7 @@ This plugin enables using [esbuild](https://esbuild.github.io) as the bundler fo
 
 ## Installation
 
-Use your favorite NPM client for the installation:
+Use your favorite npm client for the installation:
 
 ```sh
 npm i piral-cli-esbuild --save-dev

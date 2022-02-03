@@ -3,9 +3,10 @@ import { Plugin } from 'esbuild';
 import { transformFileAsync } from '@babel/core';
 import { promises } from 'fs';
 import { isAbsolute, join, resolve, basename } from 'path';
-import { getPackageName, getRequireRef } from '../shared';
 
 export interface PiletPluginOptions {
+  name: string;
+  requireRef: string;
   importmap: Array<SharedDependency>;
 }
 
@@ -93,9 +94,9 @@ export const piletPlugin = (options: PiletPluginOptions): Plugin => ({
                 plugins.push([
                   require.resolve('./banner-plugin'),
                   {
-                    name: getPackageName(),
+                    name: options.name,
                     importmap: options.importmap,
-                    requireRef: getRequireRef(),
+                    requireRef: options.requireRef,
                     cssFiles,
                   },
                 ]);

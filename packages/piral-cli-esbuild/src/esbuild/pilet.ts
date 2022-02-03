@@ -1,15 +1,24 @@
 import type { PiletBuildHandler, PiletSchemaVersion, SharedDependency } from 'piral-cli';
 import { BuildOptions } from 'esbuild';
+import { piletPlugin } from 'esbuild-pilet-plugin';
 import { basename, extname } from 'path';
 import { createCommonConfig } from './common';
 import { runEsbuild } from './bundler-run';
-import { piletPlugin } from '../plugins/pilet';
 import { extendConfig } from '../helpers';
 
 function nameOf(path: string) {
   const file = basename(path);
   const ext = extname(file);
-  return file.substr(0, file.length - ext.length);
+  return file.substring(0, file.length - ext.length);
+}
+
+function getPackageName() {
+  return process.env.BUILD_PCKG_NAME;
+}
+
+function getRequireRef() {
+  const name = getPackageName();
+  return `esbuildpr_${name.replace(/\W/gi, '')}`;
 }
 
 function createConfig(
@@ -17,6 +26,7 @@ function createConfig(
   outdir: string,
   filename: string,
   externals: Array<string>,
+  requireRef: string,
   importmap: Array<SharedDependency> = [],
   schema: PiletSchemaVersion,
   development = false,
@@ -45,17 +55,19 @@ function createConfig(
     splitting: true,
     external,
     format: 'esm',
-    plugins: [...config.plugins, piletPlugin({ importmap })],
+    plugins: [...config.plugins, piletPlugin({ importmap, requireRef, name: getPackageName() })],
   };
 }
 
 const handler: PiletBuildHandler = {
   create(options) {
+    const requireRef = getRequireRef();
     const baseConfig = createConfig(
       options.entryModule,
       options.outDir,
       options.outFile,
       options.externals,
+      requireRef,
       options.importmap,
       options.version,
       options.develop,
@@ -64,7 +76,7 @@ const handler: PiletBuildHandler = {
       options.minify,
     );
     const config = extendConfig(baseConfig, options.root);
-    return runEsbuild(config, options.logLevel, options.watch);
+    return runEsbuild(config, options.logLevel, options.watch, requireRef);
   },
 };
 

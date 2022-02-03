@@ -2,9 +2,8 @@ import type { BundleHandlerResponse, LogLevels } from 'piral-cli';
 import { BuildOptions, build } from 'esbuild';
 import { resolve, dirname } from 'path';
 import { EventEmitter } from 'events';
-import { getRequireRef } from '../shared';
 
-export function runEsbuild(config: BuildOptions, logLevel: LogLevels, watch: boolean): Promise<BundleHandlerResponse> {
+export function runEsbuild(config: BuildOptions, logLevel: LogLevels, watch: boolean, requireRef?: string): Promise<BundleHandlerResponse> {
   const eventEmitter = new EventEmitter();
   const rootDir = process.cwd();
   const outDir = config.outdir ? resolve(rootDir, config.outdir) : dirname(resolve(rootDir, config.outfile));
@@ -13,7 +12,7 @@ export function runEsbuild(config: BuildOptions, logLevel: LogLevels, watch: boo
     outFile: `/${name}`,
     outDir,
     name,
-    requireRef: getRequireRef(),
+    requireRef,
   };
 
   switch (logLevel) {

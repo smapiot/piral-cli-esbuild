@@ -1,6 +1,6 @@
 import { BuildOptions } from 'esbuild';
 import { sassPlugin } from 'esbuild-sass-plugin';
-import { codegenPlugin } from '../plugins/codegen';
+import { codegenPlugin } from 'esbuild-codegen-plugin';
 
 export function createCommonConfig(
   outdir: string,
