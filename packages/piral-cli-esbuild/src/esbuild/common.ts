@@ -22,6 +22,7 @@ export function createCommonConfig(
       '.svg': 'file',
       '.jpg': 'file',
       '.jpeg': 'file',
+      '.webp': 'file',
       '.mp4': 'file',
       '.mp3': 'file',
       '.ogg': 'file',
