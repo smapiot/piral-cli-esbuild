@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/node": "^13.9.0",
     "esbuild": "^0.13.6",
-    "piral-cli": "^0.14.9"
+    "piral-cli": "next"
   },
   "dependencies": {
     "@babel/cli": "^7.15.7",

@@ -2,6 +2,6 @@
 
 ## 0.15.0 (tbd)
 
-- Moved package to dedicated repository
-- Added `esbuild-codegen-plugin`
-- Added `esbuild-pilet-plugin`
+- Moved `piral-cli-esbuild` package to dedicated repository
+- Added `esbuild-codegen-plugin` package
+- Added `esbuild-pilet-plugin` package
