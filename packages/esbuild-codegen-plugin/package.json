@@ -1,6 +1,6 @@
 {
   "name": "esbuild-codegen-plugin",
-  "version": "0.14.32",
+  "version": "0.15.0",
   "description": "Plugin for supporting codegen files.",
   "keywords": [
     "plugin",
@@ -38,6 +38,5 @@
   "devDependencies": {
     "@types/node": "^13.9.0",
     "esbuild": "^0.13.6"
-  },
-  "dependencies": {}
+  }
 }
