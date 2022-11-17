@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.15.0 (tbd)
+## 0.15.0 (November 17, 2022)
 
 - Moved `piral-cli-esbuild` package to dedicated repository
 - Added `esbuild-codegen-plugin` package
