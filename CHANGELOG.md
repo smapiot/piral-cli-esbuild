@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.15.1 (tbd)
+## 0.15.1 (January 27, 2023)
 
 - Updated Lerna to v6
 - Added `esbuild-auto-path-plugin` package
