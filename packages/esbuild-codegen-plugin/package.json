@@ -14,7 +14,7 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "engines": {
-    "node": ">=10.0"
+    "node": ">=12.0"
   },
   "files": [
     "lib",
@@ -36,7 +36,6 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
-    "@types/node": "^13.9.0",
     "esbuild": "^0.13.6"
   }
 }

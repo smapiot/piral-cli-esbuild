@@ -1,15 +1,12 @@
 {
-  "name": "piral-cli-esbuild",
+  "name": "esbuild-auto-path-plugin",
   "version": "0.15.0",
-  "description": "Provides debug and build capabilities for pilets and Piral instances using esbuild.",
+  "description": "Plugin for transforming bundles to use an auto path for assets.",
   "keywords": [
-    "piral-cli",
-    "piral",
     "plugin",
     "esbuild",
     "build",
-    "debug",
-    "bundle"
+    "microfrontend"
   ],
   "author": "smapiot",
   "homepage": "https://piral.io",
@@ -21,7 +18,8 @@
   },
   "files": [
     "lib",
-    "src"
+    "src",
+    "set-path.js"
   ],
   "funding": {
     "type": "github",
@@ -38,16 +36,8 @@
     "build": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
+  "dependencies": {},
   "devDependencies": {
-    "@types/yargs": "^15.0.4",
-    "piral-cli": "^0.15.5"
-  },
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.10",
-    "esbuild": "^0.13.6",
-    "esbuild-auto-path-plugin": "^0.15.0",
-    "esbuild-codegen-plugin": "^0.15.0",
-    "esbuild-pilet-plugin": "^0.15.0",
-    "esbuild-sass-plugin": "^1.6.1"
+    "esbuild": "^0.13.6"
   }
 }

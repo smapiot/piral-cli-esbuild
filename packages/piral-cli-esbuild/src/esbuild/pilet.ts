@@ -1,5 +1,6 @@
 import type { PiletBuildHandler, PiletSchemaVersion, SharedDependency } from 'piral-cli';
 import { BuildOptions } from 'esbuild';
+import { autoPathPlugin } from 'esbuild-auto-path-plugin';
 import { piletPlugin } from 'esbuild-pilet-plugin';
 import { basename, extname } from 'path';
 import { createCommonConfig } from './common';
@@ -55,7 +56,7 @@ function createConfig(
     splitting: true,
     external,
     format: 'esm',
-    plugins: [...config.plugins, piletPlugin({ importmap, requireRef, name: getPackageName() })],
+    plugins: [...config.plugins, autoPathPlugin(), piletPlugin({ importmap, requireRef, name: getPackageName() })],
   };
 }
 

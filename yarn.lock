@@ -2233,10 +2233,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.14.tgz#33b9b94f789a8fedd30a68efdbca4dbb06b61f20"
   integrity sha512-SbjLmERksKOGzWzPNuW7fJM7fk3YXVTFiZWB/Hs99gwhk+/dnrQRPBQjPW9aO+fi1tAffi9PrwFvsmOKmDTyng==
 
-"@types/node@^13.9.0":
-  version "13.13.52"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.52.tgz#03c13be70b9031baaed79481c0c0cfb0045e53f7"
-  integrity sha512-s3nugnZumCC//n4moGGe6tkNMyYEdaDBitVjwPxXmR5lnMG5dHePinH2EdxkG3Rh1ghFHHixAG4NJhpJW1rthQ==
+"@types/node@18.11.18":
+  version "18.11.18"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.18.tgz#8dfb97f0da23c2293e554c5a50d61ef134d7697f"
+  integrity sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -3543,6 +3543,13 @@ dets@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/dets/-/dets-0.12.0.tgz#f6488d44059ef4b63c36e5949e1cd5792045dd66"
   integrity sha512-L3ZMC2lBfcxffdBRguce4WA+GPoHAqndlqDZS6AQDt96MDMhvGb1MALEYd5SP2He0ENyGgB8Ap4lXwPhaeQ/yg==
+  dependencies:
+    yargs "^15.4.1"
+
+dets@^0.12.2:
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/dets/-/dets-0.12.2.tgz#15285f0409f234707bc2c27c8b32aa5d43f9152b"
+  integrity sha512-RVDicEJWEue+XwtpVD5E1mpOSqQJY9A5inBtThqvIJAH0+Y74UloihvZtElE7p8m2F0gxKOq6iaekMQuVDGjdQ==
   dependencies:
     yargs "^15.4.1"
 
@@ -5715,6 +5722,14 @@ kras@^0.15.1:
     kras-management-portal "^0.13.0"
     yargs "^15.4.1"
 
+kras@^0.15.2:
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/kras/-/kras-0.15.2.tgz#84d1bf11d87a389e5287d6174ebae1c674e4ed67"
+  integrity sha512-qdI/Zauoi5GsxCpXQkxHkxLJUezv30yzaHr+a3GV15i/JmrlVmCOeeMHjcLVxxUCFGEYY/QAW6JC25/ZrTdRcw==
+  dependencies:
+    kras-management-portal "^0.13.0"
+    yargs "^15.4.1"
+
 lerna@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/lerna/-/lerna-6.0.3.tgz#0364eadeedbdf5ade375d8a6f0a87bb9003f6019"
@@ -6866,6 +6881,17 @@ pify@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-5.0.0.tgz#1f5eca3f5e87ebec28cc6d54a0e4aaf00acc127f"
   integrity sha512-eW/gHNMlxdSP6dmG6uJip6FXN0EQBwm2clYYd8Wul42Cwu/DK8HEftzsapcNdYe2MfLiIwZqsDk2RDEsTE79hA==
+
+piral-cli@^0.15.5:
+  version "0.15.5"
+  resolved "https://registry.yarnpkg.com/piral-cli/-/piral-cli-0.15.5.tgz#30968de1156d8c20c1a8b6010d2f121523c6f158"
+  integrity sha512-7FQM5zmIjhW8k9C5B10yzApSObGScdGT87qr8YRAaYqpsEEG3lPs2nN634h9uPAT7Zjk6zQ7CZFi9UXdpRPTSg==
+  dependencies:
+    dets "^0.12.2"
+    kras "^0.15.2"
+    rimraf "^3.0.0"
+    typescript "^4.0.0"
+    yargs "^15.0.0"
 
 piral-cli@next:
   version "0.15.0-beta.4633"
@@ -8174,6 +8200,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.3.tgz#3aea307c1746b8c384435d8ac36b8a2e580d85db"
   integrity sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==
 
+typescript@^4.0.0:
+  version "4.9.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.4.tgz#a2a3d2756c079abda241d75f149df9d561091e78"
+  integrity sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==
+
 typescript@^4.4.2:
   version "4.5.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.5.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"
@@ -8592,7 +8623,7 @@ yargs-parser@^20.2.2, yargs-parser@^20.2.3:
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.9.tgz#2eb7dc3b0289718fc295f362753845c41a0c94ee"
   integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
 
-yargs@^15.3.1, yargs@^15.4.1:
+yargs@^15.0.0, yargs@^15.3.1, yargs@^15.4.1:
   version "15.4.1"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-15.4.1.tgz#0d87a16de01aee9d8bec2bfbf74f67851730f4f8"
   integrity sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==
