@@ -1,6 +1,6 @@
 {
   "name": "esbuild-auto-path-plugin",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "description": "Plugin for transforming bundles to use an auto path for assets.",
   "keywords": [
     "plugin",
@@ -36,7 +36,6 @@
     "build": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "dependencies": {},
   "devDependencies": {
     "esbuild": "^0.13.6"
   }
