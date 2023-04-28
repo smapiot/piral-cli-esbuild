@@ -47,7 +47,7 @@ export default function babelPlugin(): PluginObj {
           path.addComment('leading', `@pilet v:3(${requireRef},${JSON.stringify(deps)})`, true);
 
           if (cssFiles.length > 0) {
-            path.node.body.push(template.ast(`export styles = ${JSON.stringify(cssFiles)};`) as Statement);
+            path.node.body.push(template.ast(`export const styles = ${JSON.stringify(cssFiles)};`) as Statement);
           }
         }
       },

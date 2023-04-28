@@ -55,6 +55,7 @@ export const piletPlugin = (options: PiletPluginOptions): Plugin => ({
                     name: options.name,
                     importmap: options.importmap,
                     requireRef: options.requireRef,
+                    schema: options.schema,
                     cssFiles,
                   },
                 ]);
