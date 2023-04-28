@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.15.2 (tbd)
+
+- Added support for pilet schema `v3`
+
 ## 0.15.1 (January 27, 2023)
 
 - Updated Lerna to v6

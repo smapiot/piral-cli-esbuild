@@ -8,6 +8,7 @@ export interface PiletPluginOptions {
   name: string;
   requireRef: string;
   importmap: Array<SharedDependency>;
+  schema: 'v2' | 'v3';
 }
 
 export const piletPlugin = (options: PiletPluginOptions): Plugin => ({

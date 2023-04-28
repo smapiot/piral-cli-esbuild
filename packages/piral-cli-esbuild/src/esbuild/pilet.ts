@@ -22,6 +22,16 @@ function getRequireRef() {
   return `esbuildpr_${name.replace(/\W/gi, '')}`;
 }
 
+const supportedSchemas = ['v2', 'v3'];
+
+function checkSupported(schema: string): asserts schema is 'v2' | 'v3' {
+  if (!supportedSchemas.includes(schema)) {
+    throw new Error(
+      `The provided schema version is not supported. This version supports: ${supportedSchemas.join(', ')}.`,
+    );
+  }
+}
+
 function createConfig(
   entryModule: string,
   outdir: string,
@@ -35,16 +45,15 @@ function createConfig(
   contentHash = true,
   minify = true,
 ): BuildOptions {
-  if (schema !== 'v2') {
-    throw new Error('The provided schema version is not supported. Only "v2" works with esbuild.');
-  }
-
+  checkSupported(schema);
+  
   const config = createCommonConfig(outdir, development, sourcemap, contentHash, minify);
   const name = nameOf(filename);
   const external = [...externals, ...importmap.map((m) => m.name)];
   const entryPoints = {
     [name]: entryModule,
   };
+
   importmap.forEach((dep) => {
     entryPoints[nameOf(dep.ref)] = dep.entry;
   });
@@ -56,7 +65,11 @@ function createConfig(
     splitting: true,
     external,
     format: 'esm',
-    plugins: [...config.plugins, autoPathPlugin(), piletPlugin({ importmap, requireRef, name: getPackageName() })],
+    plugins: [
+      ...config.plugins,
+      autoPathPlugin(),
+      piletPlugin({ schema, importmap, requireRef, name: getPackageName() }),
+    ],
   };
 }
 
