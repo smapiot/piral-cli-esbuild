@@ -1,5 +1,5 @@
-import type { BundleHandlerResponse, LogLevels } from 'piral-cli';
-import { BuildOptions, build } from 'esbuild';
+import { type BundleHandlerResponse, type LogLevels } from 'piral-cli';
+import { BuildOptions, context } from 'esbuild';
 import { resolve, dirname } from 'path';
 import { EventEmitter } from 'events';
 
@@ -50,17 +50,17 @@ export function runEsbuild(config: BuildOptions, logLevel: LogLevels, watch: boo
     },
   });
 
-  config.watch = watch;
-
   return Promise.resolve({
-    bundle() {
-      return build(config).then((result) => {
-        if (result.errors.length > 0) {
-          throw new Error(JSON.stringify(result.errors));
-        } else {
-          return bundle;
-        }
-      });
+    async bundle() {
+      const ctx = await context(config);
+
+      if (watch) {
+        await ctx.watch();
+      } else {
+        await ctx.rebuild();
+      }
+
+      return bundle;
     },
     onStart(cb) {
       eventEmitter.on('start', cb);

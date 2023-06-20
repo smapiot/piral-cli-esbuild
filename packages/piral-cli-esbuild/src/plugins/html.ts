@@ -106,22 +106,28 @@ export const htmlPlugin = (): Plugin => ({
     });
 
     if (Array.isArray(entries)) {
-      entries
-        .filter((m) => m.endsWith(".html"))
-        .forEach((htmlFile) => {
-          const index = entries.indexOf(htmlFile);
-          const newEntries = modifyHtmlFile(
-            rootDir,
-            htmlFile,
-            publicPath,
-            outDir
-          );
-          entries.splice(index, 1, ...newEntries);
+      const allEntries = [...entries];
+      allEntries
+        .forEach((htmlFile, index) => {
+          if (typeof htmlFile === 'string' && htmlFile.endsWith(".html")) {
+            const newEntries = modifyHtmlFile(
+              rootDir,
+              htmlFile,
+              publicPath,
+              outDir
+            );
+            allEntries.splice(index, 1, ...newEntries);
+          }
         });
 
-      build.initialOptions.entryPoints = entries.reduce((entries, entry) => {
-        const name = getName(entry);
-        entries[name] = entry;
+      build.initialOptions.entryPoints = allEntries.reduce((entries, entry) => {
+        if (typeof entry === 'string') {
+          const name = getName(entry);
+          entries[name] = entry;
+        } else {
+          entries[entry.out] = entry.in;
+        }
+
         return entries;
       }, {});
     } else {

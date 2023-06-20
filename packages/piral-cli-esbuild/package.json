@@ -40,14 +40,14 @@
   },
   "devDependencies": {
     "@types/yargs": "^15.0.4",
-    "piral-cli": "^0.15.5"
+    "piral-cli": "^1.0.0"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.10",
-    "esbuild": "^0.13.6",
+    "cheerio": "^1.0.0-rc.12",
+    "esbuild": "^0.18.5",
     "esbuild-auto-path-plugin": "^0.15.1",
     "esbuild-codegen-plugin": "^0.15.1",
     "esbuild-pilet-plugin": "^0.15.1",
-    "esbuild-sass-plugin": "^1.6.1"
+    "esbuild-sass-plugin": "^2.9.0"
   }
 }
