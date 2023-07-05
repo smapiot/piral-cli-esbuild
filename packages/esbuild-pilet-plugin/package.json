@@ -1,6 +1,6 @@
 {
   "name": "esbuild-pilet-plugin",
-  "version": "0.15.1",
+  "version": "1.0.0",
   "description": "Plugin for transforming pilets.",
   "keywords": [
     "plugin",
