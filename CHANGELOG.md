@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 (tbd)
+## 1.0.0 (July 5, 2023)
 
 - Added support for pilet schema `v3`
 - Updated `esbuild` to most recent version `0.18`
