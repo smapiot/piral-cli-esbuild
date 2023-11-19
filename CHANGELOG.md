@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.1 (tbd)
+## 1.0.1 (November 19, 2023)
 
 - Fixed resolved out file in case of `piral build`
 
