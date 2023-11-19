@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 (tbd)
+
+- Fixed resolved out file in case of `piral build`
+
 ## 1.0.0 (July 5, 2023)
 
 - Added support for pilet schema `v3`

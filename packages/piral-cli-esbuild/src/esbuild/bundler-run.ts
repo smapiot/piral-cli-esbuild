@@ -7,7 +7,8 @@ export function runEsbuild(config: BuildOptions, logLevel: LogLevels, watch: boo
   const eventEmitter = new EventEmitter();
   const rootDir = process.cwd();
   const outDir = config.outdir ? resolve(rootDir, config.outdir) : dirname(resolve(rootDir, config.outfile));
-  const name = `${Object.keys(config.entryPoints)[0]}.js`;
+  const primary = Array.isArray(config.entryPoints) ? 'main' : Object.keys(config.entryPoints)[0];
+  const name = `${primary}.js`;
   const bundle = {
     outFile: `/${name}`,
     outDir,
