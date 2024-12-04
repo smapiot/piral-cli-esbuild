@@ -1,8 +1,11 @@
 import type { SharedDependency } from 'piral-cli';
 import { Plugin } from 'esbuild';
-import { transformFileAsync } from '@babel/core';
+import { transformFileAsync, PluginObj } from '@babel/core';
 import { promises } from 'fs';
 import { resolve, basename } from 'path';
+
+import importmapPlugin from './importmap-plugin';
+import bannerPlugin from './banner-plugin';
 
 export interface PiletPluginOptions {
   name: string;
@@ -39,26 +42,12 @@ export const piletPlugin = (options: PiletPluginOptions): Plugin => ({
               const smpath = resolve(root, smname);
               const sourceMaps = smname in outputs;
               const inputSourceMap = sourceMaps ? JSON.parse(await promises.readFile(smpath, 'utf8')) : undefined;
-              const plugins: Array<any> = [
-                [
-                  require.resolve('./importmap-plugin'),
-                  {
-                    importmap: options.importmap,
-                  },
-                ],
-              ];
+              const plugins: Array<PluginObj> = [importmapPlugin(options.importmap)];
 
               if (isEntryModule) {
-                plugins.push([
-                  require.resolve('./banner-plugin'),
-                  {
-                    name: options.name,
-                    importmap: options.importmap,
-                    requireRef: options.requireRef,
-                    schema: options.schema,
-                    cssFiles,
-                  },
-                ]);
+                plugins.push(
+                  bannerPlugin(options.name, options.importmap, options.requireRef, options.schema, cssFiles),
+                );
               }
 
               const { code, map } = await transformFileAsync(path, {

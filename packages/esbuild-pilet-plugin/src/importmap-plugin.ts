@@ -1,16 +1,11 @@
-import type { SharedDependency } from 'piral-cli';
+import { stringLiteral } from '@babel/types';
 import type { PluginObj } from '@babel/core';
+import type { SharedDependency } from 'piral-cli';
 
-export interface PluginOptions {
-  importmap: Array<SharedDependency>;
-}
-
-export default function babelPlugin({ types }): PluginObj {
+export default function babelPlugin(importmap: Array<SharedDependency>): PluginObj {
   return {
     visitor: {
-      ImportDeclaration(path, state) {
-        const { importmap } = state.opts as PluginOptions;
-
+      ImportDeclaration(path) {
         path.traverse({
           Literal(path) {
             if (path.node.type === 'StringLiteral') {
@@ -18,7 +13,7 @@ export default function babelPlugin({ types }): PluginObj {
               const entry = importmap.find((m) => m.name === name);
 
               if (entry) {
-                path.replaceWith(types.stringLiteral((entry as any).requireId || entry.id));
+                path.replaceWith(stringLiteral(entry.requireId || entry.id));
               }
             }
           },

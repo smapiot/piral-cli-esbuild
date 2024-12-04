@@ -1,9 +1,13 @@
 import { Plugin } from 'esbuild';
 import { dirname, resolve } from 'path';
+import { createRequire } from 'module';
+
+const requireModule = createRequire(__filename);
 
 function reloadGenerator(name: string) {
-  delete require.cache[require.resolve(name)];
-  return require(name);
+  const path = requireModule.resolve(name);
+  delete requireModule.cache[path];
+  return requireModule(name);
 }
 
 export const codegenPlugin = (): Plugin => ({

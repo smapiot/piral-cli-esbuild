@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0 (tbd)
+
+- Updated the esbuild plugins to work with ESM and CJS
+- Updated `esbuild` to most recent version `0.24`
+
 ## 1.0.1 (November 19, 2023)
 
 - Fixed resolved out file in case of `piral build`

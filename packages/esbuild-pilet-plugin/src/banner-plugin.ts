@@ -3,21 +3,20 @@ import type { PluginObj } from '@babel/core';
 import type { Statement } from '@babel/types';
 import template from '@babel/template';
 
-export interface PluginOptions {
-  name: string;
-  importmap: Array<SharedDependency>;
-  requireRef: string;
-  cssFiles: Array<string>;
-  schema: 'v2' | 'v3';
-}
+export interface PluginOptions {}
 
-export default function babelPlugin(): PluginObj {
+export default function babelPlugin(
+  name: string,
+  importmap: Array<SharedDependency>,
+  requireRef: string,
+  schema: 'v2' | 'v3',
+  cssFiles: Array<string>,
+): PluginObj {
   const debug = process.env.NODE_ENV === 'development';
 
   return {
     visitor: {
-      Program(path, state) {
-        const { name, importmap, requireRef, cssFiles, schema } = state.opts as PluginOptions;
+      Program(path) {
         const deps = importmap.reduce((obj, dep) => {
           obj[dep.id] = dep.ref;
           return obj;

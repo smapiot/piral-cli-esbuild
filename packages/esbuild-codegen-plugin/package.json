@@ -11,10 +11,19 @@
   "author": "smapiot",
   "homepage": "https://piral.io",
   "license": "MIT",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "lib/cjs/index.cjs",
+  "module": "lib/esm/index.mjs",
+  "typings": "src/index.ts",
   "engines": {
-    "node": ">=12.0"
+    "node": ">=16.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./lib/esm/index.mjs",
+      "require": "./lib/cjs/index.cjs",
+      "types": "./src/index.ts"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "lib",
@@ -32,10 +41,12 @@
     "url": "https://github.com/smapiot/piral-cli-esbuild/issues"
   },
   "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "tsc --noEmit",
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "esbuild 'src/index.ts' --sourcemap --bundle --packages=external --platform=node --format=cjs --out-extension:.js=.cjs --outdir=lib/cjs",
+    "build:esm": "esbuild 'src/index.ts' --sourcemap --bundle --packages=external --platform=node --format=esm --out-extension:.js=.mjs --outdir=lib/esm --define:__filename=import.meta.url"
   },
   "devDependencies": {
-    "esbuild": "^0.18.5"
+    "esbuild": "^0.24.0"
   }
 }
