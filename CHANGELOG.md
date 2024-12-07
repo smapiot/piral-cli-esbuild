@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.0 (tbd)
+## 1.1.0 (December 7, 2024)
 
 - Updated the esbuild plugins to work with ESM and CJS
 - Updated `esbuild` to most recent version `0.24`
