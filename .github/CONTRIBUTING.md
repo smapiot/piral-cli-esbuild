@@ -122,7 +122,7 @@ Following is a short guide on how to make a valid Pull Request.
    - Make sure that the test and build scripts run successfully
 
      ```sh
-     npm test
+     yarn test
      lerna run build
      ```
 

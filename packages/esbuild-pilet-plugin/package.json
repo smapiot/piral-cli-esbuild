@@ -13,15 +13,15 @@
   "license": "MIT",
   "main": "lib/cjs/index.cjs",
   "module": "lib/esm/index.mjs",
-  "typings": "src/index.ts",
+  "typings": "lib/index.d.ts",
   "engines": {
     "node": ">=16.0"
   },
   "exports": {
     ".": {
+      "types": "./lib/index.d.ts",
       "import": "./lib/esm/index.mjs",
-      "require": "./lib/cjs/index.cjs",
-      "types": "./src/index.ts"
+      "require": "./lib/cjs/index.cjs"
     },
     "./package.json": "./package.json"
   },
@@ -43,13 +43,14 @@
   },
   "scripts": {
     "test": "tsc --noEmit",
-    "build": "npm run build:cjs && npm run build:esm",
+    "build": "yarn build:cjs && yarn build:esm && yarn build:declaration",
     "build:cjs": "esbuild 'src/index.ts' --sourcemap --bundle --packages=external --platform=node --format=cjs --out-extension:.js=.cjs --outdir=lib/cjs",
-    "build:esm": "esbuild 'src/index.ts' --sourcemap --bundle --packages=external --platform=node --format=esm --out-extension:.js=.mjs --outdir=lib/esm --define:__filename=import.meta.url"
+    "build:esm": "esbuild 'src/index.ts' --sourcemap --bundle --packages=external --platform=node --format=esm --out-extension:.js=.mjs --outdir=lib/esm --define:__filename=import.meta.url",
+    "build:declaration": "tsc --emitDeclarationOnly"
   },
   "devDependencies": {
     "esbuild": "^0.24.0",
-    "piral-cli": "^1.0.1"
+    "piral-cli": "1.7.3"
   },
   "dependencies": {
     "@babel/cli": "^7.15.7",

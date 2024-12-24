@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (tbd)
+
+- Use new codegen plugin
+
 ## 1.1.0 (December 7, 2024)
 
 - Updated the esbuild plugins to work with ESM and CJS

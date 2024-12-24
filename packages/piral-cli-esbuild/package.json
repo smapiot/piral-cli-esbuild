@@ -39,14 +39,14 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "devDependencies": {
-    "@types/yargs": "^15.0.4",
-    "piral-cli": "^1.0.0"
+    "@types/yargs": "^17",
+    "piral-cli": "1.7.3"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12",
+    "cheerio": "1.0.0",
     "esbuild": "^0.24.0",
     "esbuild-auto-path-plugin": "^1.1.0",
-    "esbuild-codegen-plugin": "^1.1.0",
+    "esbuild-codegen-plugin": "2.0.0-pre.2",
     "esbuild-pilet-plugin": "^1.1.0",
     "esbuild-sass-plugin": "^2.9.0"
   }
