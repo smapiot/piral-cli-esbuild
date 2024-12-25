@@ -10,7 +10,6 @@
     "build": "lerna run build",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' --project tsconfig.json",
     "prettify": "prettier --config prettier.config.js --write \"src/**/*.{ts,tsx}\"",
-    "test": "jest --forceExit --passWithNoTests",
     "prepublish": "yarn build",
     "release": "lerna publish",
     "ci:version": "node tools/changelog-version.js",
