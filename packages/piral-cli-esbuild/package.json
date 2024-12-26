@@ -45,7 +45,7 @@
     "cheerio": "1.0.0",
     "esbuild": "^0.24.0",
     "esbuild-auto-path-plugin": "^1.1.0",
-    "esbuild-codegen-plugin": "2.0.0-pre.2",
+    "esbuild-codegen-plugin": "^2",
     "esbuild-pilet-plugin": "^1.1.0",
     "esbuild-sass-plugin": "^2.9.0"
   }
