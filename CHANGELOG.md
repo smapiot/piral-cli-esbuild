@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1 (January 26, 2025)
+
+- Added more web fonts to default file types
+
 ## 1.2.0 (December 26, 2024)
 
 - Use new codegen plugin
