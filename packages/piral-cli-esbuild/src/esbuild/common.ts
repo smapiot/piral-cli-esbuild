@@ -30,6 +30,10 @@ export function createCommonConfig(
       '.ogv': 'file',
       '.wasm': 'file',
       '.gif': 'file',
+      '.otf': 'file',
+      '.ttf': 'file',
+      '.woff': 'file',
+      '.woff2': 'file',
     },
     define: {
       'process.env.NODE_ENV': JSON.stringify(development ? 'development' : 'production'),
