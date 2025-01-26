@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.1 (January 26, 2025)
+## 1.2.1 (tbd)
 
 - Added more web fonts to default file types
 
