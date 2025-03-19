@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.2 (tbd)
+
+- Updated `esbuild` to most recent version `0.25`
+
 ## 1.2.1 (January 26, 2025)
 
 - Added more web fonts to default file types

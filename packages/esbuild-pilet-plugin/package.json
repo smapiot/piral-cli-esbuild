@@ -49,7 +49,7 @@
     "build:declaration": "tsc --emitDeclarationOnly"
   },
   "devDependencies": {
-    "esbuild": "^0.24.0",
+    "esbuild": "^0.25.0",
     "piral-cli": "1.7.3"
   },
   "dependencies": {
