@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.2 (tbd)
+## 1.2.2 (March 19, 2025)
 
 - Updated `esbuild` to most recent version `0.25`
 
