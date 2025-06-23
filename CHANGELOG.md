@@ -3,6 +3,8 @@
 ## 1.3.0 (tbd)
 
 - Fixed handling of shared dependencies (bundle submodules)
+- Updated `cheerio` to latest version
+- Updated required Node.js version to match at least 20.18.1
 - Added `esbuild-externals-plugin` for improved externals handling
 - Added `esbuild-node-prefix-plugin` to handle Node.js imports
 
