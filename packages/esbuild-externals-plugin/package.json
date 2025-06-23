@@ -1,16 +1,18 @@
 {
-  "name": "esbuild-pilet-plugin",
+  "name": "esbuild-externals-plugin",
   "version": "1.2.2",
-  "description": "Plugin for transforming pilets.",
+  "description": "Plugin for having a bit more convenience over externals.",
   "keywords": [
     "plugin",
     "esbuild",
     "build",
-    "pilet"
+    "microfrontend",
+    "externals"
   ],
   "author": "smapiot",
   "homepage": "https://piral.io",
   "license": "MIT",
+  "type": "module",
   "main": "lib/cjs/index.cjs",
   "module": "lib/esm/index.mjs",
   "typings": "lib/index.d.ts",
@@ -27,8 +29,7 @@
   },
   "files": [
     "lib",
-    "src",
-    "set-path.js"
+    "src"
   ],
   "funding": {
     "type": "github",
@@ -49,12 +50,6 @@
     "build:declaration": "tsc --emitDeclarationOnly"
   },
   "devDependencies": {
-    "esbuild": "^0.25.5",
-    "piral-cli": "1.8.5"
-  },
-  "dependencies": {
-    "@babel/cli": "^7.15.7",
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8"
+    "esbuild": "^0.25.0"
   }
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 (tbd)
+
+- Fixed handling of shared dependencies (bundle submodules)
+
 ## 1.2.2 (March 19, 2025)
 
 - Updated `esbuild` to most recent version `0.25`

@@ -1,6 +1,7 @@
 import type { PiletBuildHandler, PiletSchemaVersion, SharedDependency } from 'piral-cli';
 import { BuildOptions } from 'esbuild';
 import { autoPathPlugin } from 'esbuild-auto-path-plugin';
+import { externalsPlugin } from 'esbuild-externals-plugin';
 import { piletPlugin } from 'esbuild-pilet-plugin';
 import { basename, extname } from 'path';
 import { createCommonConfig } from './common';
@@ -36,7 +37,7 @@ function createConfig(
   entryModule: string,
   outdir: string,
   filename: string,
-  externals: Array<string>,
+  external: Array<string>,
   requireRef: string,
   importmap: Array<SharedDependency> = [],
   schema: PiletSchemaVersion,
@@ -46,10 +47,9 @@ function createConfig(
   minify = true,
 ): BuildOptions {
   checkSupported(schema);
-  
+
   const config = createCommonConfig(outdir, development, sourcemap, contentHash, minify);
   const name = nameOf(filename);
-  const external = [...externals, ...importmap.map((m) => m.name)];
   const entryPoints = {
     [name]: entryModule,
   };
@@ -68,6 +68,7 @@ function createConfig(
     plugins: [
       ...config.plugins,
       autoPathPlugin(),
+      externalsPlugin(importmap.map((m) => m.name)),
       piletPlugin({ schema, importmap, requireRef, name: getPackageName() }),
     ],
   };
