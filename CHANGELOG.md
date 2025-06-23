@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.3.0 (tbd)
+## 1.3.0 (June 23, 2025)
 
 - Fixed handling of shared dependencies (bundle submodules)
 - Updated `cheerio` to latest version
