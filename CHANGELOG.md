@@ -3,6 +3,8 @@
 ## 1.3.0 (tbd)
 
 - Fixed handling of shared dependencies (bundle submodules)
+- Added `esbuild-externals-plugin` for improved externals handling
+- Added `esbuild-node-prefix-plugin` to handle Node.js imports
 
 ## 1.2.2 (March 19, 2025)
 
