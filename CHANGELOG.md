@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0 (tbd)
+
+- Added provenance at publish
+
 ## 1.3.0 (June 23, 2025)
 
 - Fixed handling of shared dependencies (bundle submodules)
